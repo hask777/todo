@@ -1,27 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Single todo</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-</head>
-<body>
-	<div class="container">
-		<h1 class="text-center my-5">
-			{{ $todo->name }}
-		</h1>
+@extends('layouts.app')
+@section('content')
 
-		<div class="card card-default">
-			<div class="card-header">
-				details
-			</div>
+	<h1 class="text-center my-5">
+		{{ $todo->name }}
+	</h1>
 
-			<div class="card-body">
-				{{ $todo->description }}
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card card-default">
+					<div class="card-header">
+						details
+					</div>
+
+					<div class="card-body">
+						{{ $todo->description }}
+					</div>
+
+					
+				</div>
+				<a href="/todos/{{ $todo->id }}/edit" class="btn btn-info btn-sm my-2">
+						Edit
+				</a>
+
+				<a href="/todos/{{ $todo->id }}/delete" class="btn btn-danger btn-sm my-2">
+						Delete
+				</a>
 			</div>
 		</div>
-	</div>
 	
-</body>
-</html>
+@endsection
